@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.dev.api</groupId>
-	<artifactId>data_base_h2</artifactId>
+	<artifactId>h2_data_base</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>demo</name>
