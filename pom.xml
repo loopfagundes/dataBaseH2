@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.dev.api</groupId>
-	<artifactId>h2_data_base</artifactId>
+	<artifactId>h2_database</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>demo</name>
@@ -88,5 +88,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
