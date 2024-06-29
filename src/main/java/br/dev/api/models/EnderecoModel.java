@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Endereco {
+public class EnderecoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +15,7 @@ public class Endereco {
 
     @ManyToOne
     @JoinColumn(name = "pessoa_id", nullable = false)
-    private Pessoa pessoa;
+    private PessoaModel pessoa;
 
     @NotBlank
     private String rua;

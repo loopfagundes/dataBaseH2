@@ -1,6 +1,6 @@
-package br.dev.api.service;
+package br.dev.api.services;
 
-import br.dev.api.models.Pessoa;
+import br.dev.api.models.PessoaModel;
 import br.dev.api.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,16 +15,16 @@ public class PessoaService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    public List<Pessoa> findAll() {
+    public List<PessoaModel> findAll() {
         return pessoaRepository.findAll();
     }
 
-    public Optional<Pessoa> findById(Long id) {
+    public Optional<PessoaModel> findById(Long id) {
         return pessoaRepository.findById(id);
     }
 
     @Transactional
-    public Pessoa save(Pessoa pessoa) {
+    public PessoaModel save(PessoaModel pessoa) {
         return pessoaRepository.save(pessoa);
     }
 

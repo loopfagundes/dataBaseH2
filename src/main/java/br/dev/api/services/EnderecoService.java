@@ -1,6 +1,6 @@
-package br.dev.api.service;
+package br.dev.api.services;
 
-import br.dev.api.models.Endereco;
+import br.dev.api.models.EnderecoModel;
 import br.dev.api.repositories.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,16 +15,16 @@ public class EnderecoService {
     @Autowired
     private EnderecoRepository enderecoRepository;
 
-    public List<Endereco> findAll() {
+    public List<EnderecoModel> findAll() {
         return enderecoRepository.findAll();
     }
 
-    public Optional<Endereco> findById(Long id) {
+    public Optional<EnderecoModel> findById(Long id) {
         return enderecoRepository.findById(id);
     }
 
     @Transactional
-    public Endereco save(Endereco endereco) {
+    public EnderecoModel save(EnderecoModel endereco) {
         return enderecoRepository.save(endereco);
     }
 

@@ -1,7 +1,7 @@
 package br.dev.api.controllers;
 
-import br.dev.api.models.Pessoa;
-import br.dev.api.service.PessoaService;
+import br.dev.api.models.PessoaModel;
+import br.dev.api.services.PessoaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,27 +18,27 @@ public class PessoaController {
     private PessoaService pessoaService;
 
     @GetMapping
-    public List<Pessoa> getAllPessoas() {
+    public List<PessoaModel> getAllPessoas() {
         return pessoaService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pessoa> getPessoaById(@PathVariable Long id) {
-        Optional<Pessoa> pessoa = pessoaService.findById(id);
+    public ResponseEntity<PessoaModel> getPessoaById(@PathVariable Long id) {
+        Optional<PessoaModel> pessoa = pessoaService.findById(id);
         return pessoa.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Pessoa createPessoa(@Valid @RequestBody Pessoa pessoa) {
+    public PessoaModel createPessoa(@Valid @RequestBody PessoaModel pessoa) {
         return pessoaService.save(pessoa);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Pessoa> updatePessoa(@PathVariable Long id, @Valid @RequestBody Pessoa pessoaDetails) {
-        Optional<Pessoa> pessoa = pessoaService.findById(id);
+    public ResponseEntity<PessoaModel> updatePessoa(@PathVariable Long id, @Valid @RequestBody PessoaModel pessoaDetails) {
+        Optional<PessoaModel> pessoa = pessoaService.findById(id);
 
         if (pessoa.isPresent()) {
-            Pessoa p = pessoa.get();
+            PessoaModel p = pessoa.get();
             p.setNome(pessoaDetails.getNome());
             p.setDataNascimento(pessoaDetails.getDataNascimento());
             p.setCpf(pessoaDetails.getCpf());

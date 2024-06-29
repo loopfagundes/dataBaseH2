@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Data
-public class Pessoa {
+public class PessoaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public class Pessoa {
     private String cpf;
 
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Endereco> enderecos = new HashSet<>();
+    private Set<EnderecoModel> enderecos = new HashSet<>();
 
     public int getIdade() {
         return Period.between(this.dataNascimento, LocalDate.now()).getYears();
